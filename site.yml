@@ -1,11 +1,5 @@
 ---
-- include: ./development/nginx-playbook.yml
-- include: ./development/docker-playbook.yml
-- include: ./development/docker-pull-playbook.yml
-- include: ./development/certbot-playbook.yml
-
----
-- include: ./staging/nginx-playbook.yml
-- include: ./staging/docker-playbook.yml
-- include: ./staging/docker-pull-playbook.yml
-- include: ./staging/certbot-playbook.yml
+- include: ./roles/nginx-playbook.yml
+- include: ./roles/docker-playbook.yml
+- include: ./roles/certbot-playbook.yml
+- include: ./roles/swap-playbook.yml
