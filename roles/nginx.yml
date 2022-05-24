@@ -1,0 +1,14 @@
+---
+- hosts: ec2_instance_dev
+  remote_user: ubuntu
+  become: true
+  tasks:
+    - name: Install the nginx/1.18.0 latest version
+      apt: name=nginx state=latest
+      become: yes
+      
+    - name: restart nginx
+      service:
+        name: nginx
+        state: restarted
+      become: yes

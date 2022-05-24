@@ -1,0 +1,31 @@
+---
+- hosts: dev_instance
+  remote_user: ubuntu
+  become: true
+  tasks:
+    - name: Add docker GPG apt-key
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    - name: Add docker repository
+      apt_repository:
+        repo: deb https://download.docker.com/linux/ubuntu/ focal stable
+        state: present
+
+    - name: Apt update & install docker-ce
+      apt:
+        name: docker-ce
+        state: latest
+        update_cache: true
+
+    - name: Install docker module for python
+      pip:
+        name: docker
+
+    - name: Install docker-compose
+      remote_user: ubuntu
+      get_url:
+        url: https://github.com/docker/compose/releases/download/1.29.2/docker-compose-linux-x85_64
+        dest: /usr/local/bin/docker-compose
+        mode: 'u+x, g+x'
