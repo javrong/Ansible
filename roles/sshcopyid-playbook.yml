@@ -1,0 +1,9 @@
+---
+- name: SSH copy pubkey
+  hosts: s-bemn.nobi.internal
+  tasks:
+  - name: Copying a pubkey
+    authorized_key:
+      user: ubuntu
+      state: present
+      key: "{{ lookup('file', '/home/ubuntu/.ssh/id_rsa.pub') }}"
