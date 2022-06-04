@@ -1,6 +1,6 @@
 ## Ansible Script for Installing NGINX, DOCKER, CERTBOT, and add SWAP memory.
 
-### How to use
+### How to use:
 1. Install ansible packege use command:
 `sudo apt install anisble`
 2. Set hosts address what ever you want in dir '/etc/ansible/hosts'
